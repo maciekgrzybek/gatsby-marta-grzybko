@@ -99,11 +99,11 @@ module.exports = {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
+        enableIdentityWidget: false,
       },
     },
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
   ],
 }
