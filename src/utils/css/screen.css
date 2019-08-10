@@ -264,6 +264,11 @@ a.site-head:hover {
   left: 0;
   z-index: 9999;
   padding: 12px 12px 12px 0;
+  box-shadow: none;
+}
+
+.nav-burger:hover {
+  box-shadow: none;
 }
 
 @media (max-width: 850px) {
