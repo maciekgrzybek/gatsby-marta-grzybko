@@ -7,4 +7,4 @@ description: >-
   kolorystyka nadały jej lekkości i oryginalności.
 thumbnail: /img/bench-accounting-49909-unsplash.jpg
 ---
-
+![Balustrada](/img/azurowa-balustrada.jpg "Balustrada")
