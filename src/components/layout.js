@@ -26,12 +26,12 @@ const Layout = props => {
           </button>
           <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
-              <li className="nav-home" role="menuitem">
+              <li role="menuitem">
                 <Link to={`/`} activeClassName="nav-current">
-                  Home
+                  Projekty
                 </Link>
               </li>
-              <li className="nav-about" role="menuitem">
+              <li role="menuitem">
                 <Link to={`/o-mnie`} activeClassName="nav-current">
                   O mnie
                 </Link>
@@ -71,15 +71,7 @@ const Layout = props => {
         </div>
       </main>
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built with{" "}
-        <a
-          href="https://gatsbyjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gatsby
-        </a>
+        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
       </footer>
     </div>
   )
