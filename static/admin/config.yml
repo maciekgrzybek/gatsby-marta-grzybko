@@ -16,3 +16,15 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Image", name: "thumbnail", widget: image }
+  - name: "pages"
+    label: "Pages"
+    create: false
+    files:
+      - file: "content/pages/o-mnie.md"
+        label: "O mnie"
+        name: "about"
+        fields:
+          - {label: "Title", name: "title", widget: string}
+          - {label: "Thumbnail", name: "thumbnail", widget: image}
+          - {label: "Intro", name: "intro", widget: string}
+          - {label: "Body", name: "body", widget: "markdown"}
