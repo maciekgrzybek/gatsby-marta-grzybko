@@ -7,4 +7,4 @@ description: >-
   kolorystyka nadały jej lekkości i oryginalności.
 thumbnail: /img/azurowa-balustrada.jpg
 ---
-![Balustrada](/img/azurowa-balustrada.jpg "Balustrada")
+![Balustrada](/img/azurowa-balustrada.jpg)
