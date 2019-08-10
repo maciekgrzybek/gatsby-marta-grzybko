@@ -6,6 +6,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const portfolioItem = path.resolve(`./src/templates/portfolio-item.js`)
+  const aboutTemplate = path.resolve(`./src/templates/o-mnie.js`)
+
   return graphql(
     `
       {
@@ -20,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                intro
               }
             }
           }
@@ -40,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       createPage({
         path: post.node.fields.slug,
-        component: portfolioItem,
+        component: post.node.fields.slug !== '/o-mnie/' ? portfolioItem : aboutTemplate,
         context: {
           slug: post.node.fields.slug,
           previous,
