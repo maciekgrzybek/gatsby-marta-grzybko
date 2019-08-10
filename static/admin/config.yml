@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: "portfolio"
     label: "Portfolio"
-    folder: "src/templates/portfolio-item.js"
+    folder: "content/portfolio"
     create: true
     slug: "{{slug}}"
     fields:
