@@ -11,9 +11,6 @@ import "../utils/css/screen.css"
 const AboutPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title;
   const pageData = data.allMarkdownRemark.edges[0].node;
-  function createMarkup() {
-    return {__html: pageData.html};
-  }
   console.log(pageData)
   return (
     <Layout title={siteTitle}>
@@ -33,7 +30,7 @@ const AboutPage = ({ data }, location) => {
               className="kg-image"
             />
           </figure>
-          <div dangerouslySetInnerHTML={createMarkup()} />
+          <div dangerouslySetInnerHTML={{__html: pageData.html}} />
         </div>
       </article>
     </Layout>
