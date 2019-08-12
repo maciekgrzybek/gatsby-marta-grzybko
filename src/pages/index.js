@@ -20,7 +20,6 @@ const PortfolioIndex = ({ data }, location) => {
         title="Projekty"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      {/* <Bio /> */}
       {data.site.siteMetadata.description && (
         <header className="page-head">
           <h2 className="page-head-title">
