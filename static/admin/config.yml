@@ -17,6 +17,10 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Image", name: "thumbnail", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        field: {label: Image, name: image, widget: image}
   - name: "pages"
     label: "Pages"
     create: false
