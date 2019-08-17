@@ -1,0 +1,8 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "globals": {
+    "import": true,
+    "module": true,
+    "const": true
+  }
+}
