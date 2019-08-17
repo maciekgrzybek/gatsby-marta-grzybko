@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import "../utils/normalize.css"
-import "../utils/css/screen.css"
+import '../utils/normalize.css';
+import '../utils/css/screen.css';
 
 const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -15,7 +15,7 @@ const AboutPage = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO
         title="O mnie"
-        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+        keywords={[`blog`, `marta`, `grzybko`, `projektowanie`]}
       />
 
       <article className="post-content page-template no-image">
@@ -24,17 +24,18 @@ const AboutPage = ({ data }) => {
             {pageData.intro.intro}
           </h2>
           <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={pageData.images[0].fluid}
-              className="kg-image"
-            />
+            <Img fluid={pageData.images[0].fluid} className="kg-image" />
           </figure>
-          <div dangerouslySetInnerHTML={{__html: pageData.description.description}} />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: pageData.description.description,
+            }}
+          />
         </div>
       </article>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query AboutMePageQuery {
@@ -43,7 +44,7 @@ export const query = graphql`
         title
       }
     }
-    contentfulPages(title: {eq: "About me"}) {
+    contentfulPages(title: { eq: "About me" }) {
       title
       intro {
         intro

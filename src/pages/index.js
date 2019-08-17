@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import {graphql, StaticQuery} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,7 +8,8 @@ import PostCard from "../components/postCard"
 import "../utils/css/components/global.css"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
-const PortfolioIndex = ({ data }) => {
+
+const PortfolioIndex = ({data}) => {
   const siteTitle = data.site.siteMetadata.title
   const portfolioItems = data.allContentfulPortfolioItem.edges
   let portfolioCounter = 0
@@ -27,7 +28,7 @@ const PortfolioIndex = ({ data }) => {
         </header>
       )}
       <div className="post-feed">
-        {portfolioItems.map(({ node }) => {
+        {portfolioItems.map(({node}) => {
           portfolioCounter++
           return (
             <PostCard
