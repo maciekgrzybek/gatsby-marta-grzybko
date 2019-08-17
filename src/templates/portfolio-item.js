@@ -28,7 +28,7 @@ class PortfolioItemTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={portfolioItem.title}
-          description={portfolioItem.description ? portfolioItem.descriptio.description : portfolioItem.title}
+          description={portfolioItem.description ? portfolioItem.description.description : portfolioItem.title}
         />
         <article
           className={`post-content ${portfolioItem.frontmatter || `no-image`}`}
