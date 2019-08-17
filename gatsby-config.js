@@ -2,8 +2,8 @@ const urljoin = require("url-join")
 const siteConfig = require("./siteConfig")
 
 require("dotenv").config({
-  path: '.env'
-})
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 module.exports = {
   siteMetadata: {
