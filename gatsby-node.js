@@ -1,28 +1,31 @@
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
-const { fmImagesToRelative } = require("gatsby-remark-relative-images")
+const slugify = require('slugify');
+
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `ContentfulPortfolioItem`) {
+    const slug = slugify(node.title).toLowerCase();
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `portfolio/${slug}`
+    })
+  }
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   const portfolioItem = path.resolve(`./src/templates/portfolio-item.js`)
-  const aboutTemplate = path.resolve(`./src/templates/o-mnie.js`)
 
   return graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        allContentfulPortfolioItem {
           edges {
             node {
               fields {
                 slug
-              }
-              frontmatter {
-                title
-                intro
               }
             }
           }
@@ -35,17 +38,16 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create portfolio items pages.
-    const posts = result.data.allMarkdownRemark.edges
+    const portfolioItems = result.data.allContentfulPortfolioItem.edges;
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
-
+    portfolioItems.forEach((item, index) => {
+      const previous = index === portfolioItems.length - 1 ? null : portfolioItems[index + 1].node
+      const next = index === 0 ? null : portfolioItems[index - 1].node
       createPage({
-        path: post.node.fields.slug,
-        component: post.node.fields.slug !== '/o-mnie/' ? portfolioItem : aboutTemplate,
+        path: `/${item.node.fields.slug}`,
+        component: portfolioItem,
         context: {
-          slug: post.node.fields.slug,
+          slug: item.node.fields.slug,
           previous,
           next,
         },
@@ -54,17 +56,4 @@ exports.createPages = ({ graphql, actions }) => {
 
     return null
   })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  fmImagesToRelative(node)
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
 }

@@ -5,14 +5,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostCard from "../components/postCard"
 
-// import "../utils/global.scss"
+import "../utils/css/components/global.css"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
-//TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
-const PortfolioIndex = ({ data }, location) => {
+const PortfolioIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-  let postCounter = 0
+  const portfolioItems = data.allContentfulPortfolioItem.edges
+  let portfolioCounter = 0
 
   return (
     <Layout title={siteTitle}>
@@ -28,12 +27,12 @@ const PortfolioIndex = ({ data }, location) => {
         </header>
       )}
       <div className="post-feed">
-        {posts.map(({ node }) => {
-          postCounter++
+        {portfolioItems.map(({ node }) => {
+          portfolioCounter++
           return (
             <PostCard
               key={node.fields.slug}
-              count={postCounter}
+              count={portfolioCounter}
               node={node}
               postClass={`post`}
             />
@@ -52,23 +51,26 @@ const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [fields___slug], order: ASC }) {
+    allContentfulPortfolioItem(sort: { fields: [fields___slug], order: ASC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
+          title
+          description {
             description
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          }
+          images {
+            id
+            fluid(maxWidth: 1360) {
+              aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
             }
           }
         }
@@ -85,3 +87,4 @@ export default props => (
     )}
   />
 )
+

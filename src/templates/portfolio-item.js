@@ -6,47 +6,58 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class PortfolioItemTemplate extends React.Component {
+
+  renderImages(images) {
+    images.shift();
+    return images.map(image => {
+      return (
+        <Img
+          key={image.id}
+          className="kg-image"
+          fluid={image.fluid}
+          alt={this.props.data.contentfulPortfolioItem.title}
+        />
+      )
+    })
+  }
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const portfolioItem = this.props.data.contentfulPortfolioItem;
+    const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          title={portfolioItem.title}
+          description={portfolioItem.description ? portfolioItem.descriptio.description : portfolioItem.title}
         />
         <article
-          className={`post-content ${post.frontmatter.thumbnail || `no-image`}`}
+          className={`post-content ${portfolioItem.frontmatter || `no-image`}`}
         >
           <header className="post-content-header">
-            <h1 className="post-content-title">{post.frontmatter.title}</h1>
+            <h1 className="post-content-title">{portfolioItem.title}</h1>
           </header>
 
-          {post.frontmatter.description && (
-            <p class="post-content-excerpt">{post.frontmatter.description}</p>
+          {portfolioItem.description && (
+            <p className="post-content-excerpt">{portfolioItem.description.description}</p>
           )}
 
-          {post.frontmatter.thumbnail && (
+          {portfolioItem.images.length > 0 && (
             <div className="post-content-image">
               <Img
                 className="kg-image"
-                fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
-                alt={post.frontmatter.title}
+                fluid={portfolioItem.images[0].fluid}
+                alt={portfolioItem.title}
               />
             </div>
           )}
-
+          {/* 
           <div
             className="post-content-body"
             dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          /> */}
+          {portfolioItem.images.length > 1 && this.renderImages(portfolioItem.images)}
 
           <footer className="post-content-footer">
-            {/* There are two options for how we display the byline/author-info.
-        If the post has more than one author, we load a specific template
-        from includes/byline-multiple.hbs, otherwise, we just use the
-        default byline. */}
           </footer>
         </article>
       </Layout>
@@ -64,22 +75,23 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+    contentfulPortfolioItem(fields: { slug: { eq: $slug } }) {
+      title
+      description {
         description
-        thumbnail {
-          childImageSharp {
-            fluid(maxWidth: 1360) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+      }
+      images {
+        id
+        fluid(maxWidth: 1360) {
+          aspectRatio
+          base64
+          sizes
+          src
+          srcSet
+          srcSetWebp
+          srcWebp
         }
       }
     }
   }
-`
+`;

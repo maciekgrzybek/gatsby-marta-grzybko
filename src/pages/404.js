@@ -17,9 +17,9 @@ class NotFoundPage extends React.Component {
       </Layout>
     )
   }
-}
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
 export const pageQuery = graphql`
   query {
@@ -29,4 +29,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
