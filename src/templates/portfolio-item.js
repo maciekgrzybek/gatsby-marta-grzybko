@@ -22,10 +22,9 @@ class PortfolioItemTemplate extends React.Component {
   }
   render() {
     const portfolioItem = this.props.data.contentfulPortfolioItem;
-    const siteTitle = this.props.data.site.siteMetadata.title;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <>
         <SEO
           title={portfolioItem.title}
           description={portfolioItem.description ? portfolioItem.description.description : portfolioItem.title}
@@ -60,7 +59,7 @@ class PortfolioItemTemplate extends React.Component {
           <footer className="post-content-footer">
           </footer>
         </article>
-      </Layout>
+      </>
     )
   }
 }
@@ -69,12 +68,6 @@ export default PortfolioItemTemplate
 
 export const pageQuery = graphql`
   query PortfolioItemBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     contentfulPortfolioItem(fields: { slug: { eq: $slug } }) {
       title
       description {

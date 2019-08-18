@@ -10,13 +10,10 @@ import '../utils/normalize.css';
 import '../utils/css/screen.css';
 
 const PortfolioListing = ({ data, category }) => {
-  console.log(category)
-  const siteTitle = data.site.siteMetadata.title;
   const portfolioItems = data.allContentfulPortfolioItem.edges.filter(item => item.node.category.title === category);
-  let portfolioCounter = 0;
 
   return (
-    <Layout title={siteTitle}>
+    <>
       <SEO
         title="Projekty"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -29,56 +26,19 @@ const PortfolioListing = ({ data, category }) => {
         </header>
       )}
       <div className="post-feed">
-        {portfolioItems.map(({ node }) => {
-          portfolioCounter++;
+        {portfolioItems.map(({ node }, i) => {
           return (
             <PostCard
               key={node.fields.slug}
-              count={portfolioCounter}
+              count={i + 1}
               node={node}
               postClass={`post`}
             />
           );
         })}
       </div>
-    </Layout>
+    </>
   );
 };
-
-const indexQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-    allContentfulPortfolioItem(sort: { fields: [fields___slug], order: ASC }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          title
-          description {
-            description
-          }
-          images {
-            id
-            fluid(maxWidth: 1360) {
-              aspectRatio
-              base64
-              sizes
-              src
-              srcSet
-              srcSetWebp
-              srcWebp
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default PortfolioListing;

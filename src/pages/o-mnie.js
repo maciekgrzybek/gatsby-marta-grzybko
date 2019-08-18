@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import '../utils/normalize.css';
@@ -12,7 +11,7 @@ const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const pageData = data.contentfulPages;
   return (
-    <Layout title={siteTitle}>
+    <>
       <SEO
         title="O mnie"
         keywords={[`blog`, `marta`, `grzybko`, `projektowanie`]}
@@ -33,7 +32,7 @@ const AboutPage = ({ data }) => {
           />
         </div>
       </article>
-    </Layout>
+    </>
   );
 };
 
