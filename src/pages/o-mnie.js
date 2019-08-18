@@ -22,7 +22,7 @@ const AboutPage = ({ data }) => {
           <h2 id="clean-minimal-and-deeply-customisable-london-is-a-theme-made-for-people-who-appreciate-simple-lines-">
             {pageData.intro.intro}
           </h2>
-          <figure className="kg-card kg-image-card kg-width-full">
+          <figure className="kg-card kg-image-card">
             <Img fluid={pageData.images[0].fluid} className="kg-image" />
           </figure>
           <div

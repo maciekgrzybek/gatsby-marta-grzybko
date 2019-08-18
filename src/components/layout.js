@@ -37,17 +37,17 @@ const Layout = ({ children }) => {
           </button>
           <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
-              <li role="menuitem">
+              <li role="menuitem" onClick={() => setToggleNav(!toggleNav)}>
                 <Link to={`/`} activeClassName="nav-current">
                   Projekty
                 </Link>
               </li>
-              <li role="menuitem">
+              <li role="menuitem" onClick={() => setToggleNav(!toggleNav)}>
                 <Link to={`/realizacje`} activeClassName="nav-current">
                   Realizacje
                 </Link>
               </li>
-              <li role="menuitem">
+              <li role="menuitem" onClick={() => setToggleNav(!toggleNav)}>
                 <Link to={`/o-mnie`} activeClassName="nav-current">
                   O mnie
                 </Link>
