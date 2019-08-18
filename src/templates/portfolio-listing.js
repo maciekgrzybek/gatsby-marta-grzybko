@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import PostCard from '../components/postCard';
+import PortfolioCard from '../components/portfolioCard';
 
 import '../utils/css/components/global.css';
 import '../utils/normalize.css';
@@ -28,7 +28,7 @@ const PortfolioListing = ({ data, category }) => {
       <div className="post-feed">
         {portfolioItems.map(({ node }, i) => {
           return (
-            <PostCard
+            <PortfolioCard
               key={node.fields.slug}
               count={i + 1}
               node={node}
