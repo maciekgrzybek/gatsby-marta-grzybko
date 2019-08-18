@@ -13,7 +13,7 @@ export default ({ count, postClass, node }) => (
       }
     }
   >
-    <Link to={node.fields.slug} className="post-card-link">
+    <Link to={`/${node.fields.slug}`} className="post-card-link">
       <div className="post-card-content">
         <h2 className="post-card-title">{node.title || node.fields.slug}</h2>
       </div>

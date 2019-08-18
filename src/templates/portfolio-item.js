@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
@@ -42,7 +42,7 @@ const PortfolioItemTemplate = ({ data }) => {
             {portfolioItem.description.description}
           </p>
         )}
-        {portfolioItem.images.length > 1 && renderImages(portfolioItem.images)}
+        {portfolioItem.images.length > 0 && renderImages(portfolioItem.images)}
         <footer className="post-content-footer"></footer>
       </article>
     </>
