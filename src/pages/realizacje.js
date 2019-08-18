@@ -48,7 +48,7 @@ export default (props) => {
       render={(data) => (
         <PortfolioListing
           props
-          category="Projekt"
+          category="Realizacja"
           data={data}
           {...props}
         />
