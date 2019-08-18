@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';  
 
-const Layout = props => {
-  const { title, children } = props
-  const [toggleNav, setToggleNav] = React.useState(false)
+const Layout = (props) => {
+  const { title, children } = props;
+  const [toggleNav, setToggleNav] = React.useState(false);
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
@@ -32,6 +32,11 @@ const Layout = props => {
                 </Link>
               </li>
               <li role="menuitem">
+                <Link to={`/realizacje`} activeClassName="nav-current">
+                  Realizacje
+                </Link>
+              </li>
+              <li role="menuitem">
                 <Link to={`/o-mnie`} activeClassName="nav-current">
                   O mnie
                 </Link>
@@ -54,7 +59,7 @@ const Layout = props => {
                 Email
               </a>
               <a
-                href="tel+48793298366"
+                href="tel:48793298366"
                 title="Telefon"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +79,7 @@ const Layout = props => {
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
