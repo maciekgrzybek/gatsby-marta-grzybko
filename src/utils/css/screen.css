@@ -458,6 +458,10 @@ a.site-head:hover {
   .post-card.with-image .post-card-content {
     opacity: 1;
   }
+
+  .post-card-title {
+    font-size: 2.4rem;
+  }
 }
 
 .post-card-link:hover .post-card-content {
