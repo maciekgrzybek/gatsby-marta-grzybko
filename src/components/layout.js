@@ -1,9 +1,20 @@
-import React from 'react';
-import { Link } from 'gatsby';  
+import React, { useState } from 'react';
+import { useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
-const Layout = (props) => {
-  const { title, children } = props;
-  const [toggleNav, setToggleNav] = React.useState(false);
+const Layout = ({ children }) => {
+  const [toggleNav, setToggleNav] = useState(false);
+
+  const {site} = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+          subtitle
+        }
+      }
+    }
+  `);
   return (
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
@@ -45,7 +56,9 @@ const Layout = (props) => {
           </nav>
           <div className="site-head-center">
             <Link className="site-head-logo" to={`/`}>
-              {title}
+              {site.siteMetadata.title}
+              <br />
+              <span className="site-head-logo__subtitle">{site.siteMetadata.subtitle}</span>
             </Link>
           </div>
           <div className="site-head-right">
@@ -76,7 +89,7 @@ const Layout = (props) => {
         </div>
       </main>
       <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
+        &copy; {new Date().getFullYear()} <Link to={`/`}>{site.siteMetadata.title} - {site.siteMetadata.subtitle}</Link>
       </footer>
     </div>
   );
