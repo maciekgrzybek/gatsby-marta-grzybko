@@ -8,6 +8,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
+    subtitle: siteConfig.subtitle,
     author: siteConfig.author,
     description: siteConfig.description,
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
