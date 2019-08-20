@@ -4,9 +4,6 @@ import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
 
-import '../utils/normalize.css';
-import '../utils/css/screen.css';
-
 const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const pageData = data.contentfulPages;

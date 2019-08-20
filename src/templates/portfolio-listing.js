@@ -4,10 +4,6 @@ import { graphql, StaticQuery } from 'gatsby';
 import SEO from '../components/seo';
 import PortfolioCard from '../components/portfolioCard';
 
-import '../utils/css/components/global.css';
-import '../utils/normalize.css';
-import '../utils/css/screen.css';
-
 const PortfolioListing = ({ data, category }) => {
   const portfolioItems = data.allContentfulPortfolioItem.edges.filter(item => item.node.category.title === category);
 
