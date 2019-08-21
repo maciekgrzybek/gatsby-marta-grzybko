@@ -1121,6 +1121,11 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@rooks/use-outside-click@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@rooks/use-outside-click/-/use-outside-click-3.2.2.tgz#aaf8ec9f03170da89dccd6680b817f0b0dd35b89"
+  integrity sha512-hslsSp849oxkcxiFXr8nfDDAtfxO/NwBJGv23HKYnp3KplP0iK2iT2gj5s+81+3WP15WhnLnIOimZbiCoJ8vsw==
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
