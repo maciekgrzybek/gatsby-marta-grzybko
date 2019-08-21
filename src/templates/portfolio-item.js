@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import useOutsideClick from '@rooks/use-outside-click';
 
+import Modal from '../components/modal';
 import SEO from '../components/seo';
 
 const PortfolioItemTemplate = ({ data }) => {
+  const [lightboxIsOpen, toggleLigthbox] = useState(false);
+  const [currentImage, setCurrentImage] = useState('');
   const portfolioItem = data.contentfulPortfolioItem;
+  const modalImageRef = useRef(null);
 
+  useOutsideClick(modalImageRef, () => toggleLigthbox(false))
+  function handleImageClick(image) {
+    toggleLigthbox(true);
+    setCurrentImage(image);
+  }
   function renderImages(images) {
     return images.map((image) => {
       return (
-        <Img
+        <div
+          onClick={() => {
+            handleImageClick(image.file.url);
+          }}
           key={image.id}
-          className="kg-image"
-          fluid={image.fluid}
-          alt={data.contentfulPortfolioItem.title}
-        />
+        >
+          <Img
+            className="kg-image"
+            fluid={image.fluid}
+            alt={data.contentfulPortfolioItem.title}
+          />
+        </div>
       );
     });
   }
@@ -30,6 +46,9 @@ const PortfolioItemTemplate = ({ data }) => {
             : portfolioItem.title
         }
       />
+      <Modal isOpen={lightboxIsOpen} updateOpen={toggleLigthbox}>
+        <img src={`https:${currentImage}`} ref={modalImageRef} alt="" />
+      </Modal>
       <article
         className={`post-content ${portfolioItem.frontmatter || `no-image`}`}
       >
@@ -60,6 +79,9 @@ export const pageQuery = graphql`
       }
       images {
         id
+        file {
+          url
+        }
         fluid(maxWidth: 1360) {
           aspectRatio
           base64
