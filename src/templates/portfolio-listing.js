@@ -5,6 +5,7 @@ import SEO from '../components/seo';
 import PortfolioCard from '../components/portfolioCard';
 
 const PortfolioListing = ({ data, category }) => {
+  console.log(data)
   const portfolioItems = data.allContentfulPortfolioItem.edges.filter(item => item.node.category.title === category);
 
   return (

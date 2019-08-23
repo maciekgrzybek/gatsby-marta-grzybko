@@ -2,7 +2,17 @@ import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import PortfolioListing from '../templates/portfolio-listing';
 
-const indexQuery = graphql`
+export default ({data, ...props}) => {
+  return (
+    <PortfolioListing
+      category="Projekt"
+      data={data}
+      {...props}
+    />
+  )
+}
+
+export const indexQuery = graphql`
   query {
     site {
       siteMetadata {
@@ -41,18 +51,3 @@ const indexQuery = graphql`
   }
 `;
 
-export default (props) => {
-  return (
-    <StaticQuery
-      query={indexQuery}
-      render={(data) => (
-        <PortfolioListing
-          props
-          category="Projekt"
-          data={data}
-          {...props}
-        />
-      )}
-    />
-  );
-};
