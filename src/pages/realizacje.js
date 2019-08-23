@@ -4,11 +4,13 @@ import PortfolioListing from '../templates/portfolio-listing';
 
 export default ({data, ...props}) => {
   return (
-    <PortfolioListing
-      category="Realizacja"
-      data={data}
-      {...props}
-    />
+    <div>
+      <PortfolioListing
+        category="Realizacja"
+        data={data}
+        {...props}
+      />
+    </div>
   )
 }
 
