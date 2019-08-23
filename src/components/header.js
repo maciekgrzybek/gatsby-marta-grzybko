@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Link } from 'gatsby';
 
-const Header = ({toggleNav, navIsOpen}) => {
+const Header = ({siteMetadata, toggleNav, navIsOpen}) => {
   return (
     <header className="site-head">
       <div className="site-head-container">
@@ -42,10 +42,10 @@ const Header = ({toggleNav, navIsOpen}) => {
         </nav>
         <div className="site-head-center">
           <Link className="site-head-logo" to={`/`}>
-            Marta Grzybko
+            {siteMetadata.title}
             <br />
             <span className="site-head-logo__subtitle">
-            Projektowanie wnętrz
+              {siteMetadata.subtitle}
             </span>
           </Link>
         </div>
