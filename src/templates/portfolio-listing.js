@@ -5,11 +5,10 @@ import SEO from '../components/seo';
 import PortfolioCard from '../components/portfolioCard';
 
 const PortfolioListing = ({ data, category }) => {
-  console.log(data)
   const portfolioItems = data.allContentfulPortfolioItem.edges.filter(item => item.node.category.title === category);
 
   return (
-    <div>
+    <>
       <SEO
         title="Projekty"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -21,7 +20,7 @@ const PortfolioListing = ({ data, category }) => {
           </h2>
         </header>
       )}
-      <div>
+      
       <div className="post-feed">
         {portfolioItems.map(({ node }, i) => {
           return (
@@ -34,9 +33,9 @@ const PortfolioListing = ({ data, category }) => {
           );
         })}
       </div>
-      </div>
+      
 
-    </div>
+    </>
   );
 };
 
