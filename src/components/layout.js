@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
     }
   `);
   return (
-    <div className="site-wrapper" role="wrapper">
+    <div className={`site-wrapper ${mainNavClass}`} role="wrapper">
       <Header siteMetadata={site.siteMetadata} toggleNav={setToggleNav} navIsOpen={navIsOpen}/>
       <main id="site-main" className="site-main">
         <div id="swup">

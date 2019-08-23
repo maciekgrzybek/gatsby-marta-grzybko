@@ -21,7 +21,6 @@ const PortfolioListing = ({ data, category }) => {
           </h2>
         </header>
       )}
-      <div>
       <div className="post-feed">
         {portfolioItems.map(({ node }, i) => {
           return (
@@ -34,8 +33,6 @@ const PortfolioListing = ({ data, category }) => {
           );
         })}
       </div>
-      </div>
-
     </>
   );
 };
