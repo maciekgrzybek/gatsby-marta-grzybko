@@ -7,5 +7,7 @@ require('./src/utils/normalize.css');
 require('./src/utils/css/screen.css');
 
 exports.wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>;
+  return <Layout {...props}><div>
+    {element}
+  </div></Layout>;
 };
