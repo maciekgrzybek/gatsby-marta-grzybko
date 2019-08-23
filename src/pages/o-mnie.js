@@ -8,7 +8,7 @@ const AboutPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const pageData = data.contentfulPages;
   return (
-    <div>
+    <>
       <SEO
         title="O mnie"
         keywords={[`blog`, `marta`, `grzybko`, `projektowanie`]}
@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => {
           />
         </div>
       </article>
-    </div>
+    </>
   );
 };
 
