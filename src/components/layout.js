@@ -4,9 +4,9 @@ import { Link } from 'gatsby';
 
 import Header from './header';
 
-import('./src/utils/css/components/global.css');
-import('./src/utils/normalize.css');
-import('./src/utils/css/screen.css');
+import('../utils/css/components/global.css');
+import('../utils/normalize.css');
+import('../utils/css/screen.css');
 
 const Layout = ({ children }) => {
   const [navIsOpen, setToggleNav] = useState(false);
