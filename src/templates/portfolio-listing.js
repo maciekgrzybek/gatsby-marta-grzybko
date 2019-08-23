@@ -8,7 +8,7 @@ const PortfolioListing = ({ data, category }) => {
   const portfolioItems = data.allContentfulPortfolioItem.edges.filter(item => item.node.category.title === category);
 
   return (
-    <div>
+    <>
       <SEO
         title="Projekty"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -32,7 +32,7 @@ const PortfolioListing = ({ data, category }) => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
