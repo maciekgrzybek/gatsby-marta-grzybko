@@ -16,6 +16,7 @@
   max-height: 95%;
 }
 
+/* Close icon in modal */
 .close-icon {
   width: 30px;
   height: 30px;
@@ -44,5 +45,40 @@
 }
 
 .close-icon span:last-child {
+  transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+}
+
+/* Chevron icon in modal */
+.chevron-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.chevron-icon:hover {
+  opacity: 0.8;
+}
+
+.chevron-icon--right {
+  transform: rotate(180deg);
+}
+
+.chevron-icon span {
+  width: 30px;
+  height: 2px;
+  background: white;
+  display: block;
+  transform-origin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.chevron-icon span:first-child {
+  transform: translate3d(-50%, -50%, 0) rotate(45deg);
+}
+
+.chevron-icon span:last-child {
   transform: translate3d(-50%, -50%, 0) rotate(-45deg);
 }

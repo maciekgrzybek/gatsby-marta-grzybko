@@ -8,21 +8,23 @@ import SEO from '../components/seo';
 
 const PortfolioItemTemplate = ({ data }) => {
   const [lightboxIsOpen, toggleLigthbox] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const portfolioItem = data.contentfulPortfolioItem;
   const modalImageRef = useRef(null);
 
-  useOutsideClick(modalImageRef, () => toggleLigthbox(false))
+  useOutsideClick(modalImageRef, () => toggleLigthbox(false));
+
   function handleImageClick(image) {
     toggleLigthbox(true);
-    setCurrentImage(image);
+    setCurrentImageIndex(image);
   }
+
   function renderImages(images) {
-    return images.map((image) => {
+    return images.map((image, i) => {
       return (
         <div
           onClick={() => {
-            handleImageClick(image.file.url);
+            handleImageClick(i);
           }}
           key={image.id}
         >
@@ -35,7 +37,6 @@ const PortfolioItemTemplate = ({ data }) => {
       );
     });
   }
-
   return (
     <>
       <SEO
@@ -46,8 +47,18 @@ const PortfolioItemTemplate = ({ data }) => {
             : portfolioItem.title
         }
       />
-      <Modal isOpen={lightboxIsOpen} updateOpen={toggleLigthbox}>
-        <img src={`https:${currentImage}`} ref={modalImageRef} alt="" />
+      <Modal
+        isOpen={lightboxIsOpen}
+        updateOpen={toggleLigthbox}
+        currentImageIndex={currentImageIndex}
+        setCurrentImageIndex={setCurrentImageIndex}
+        maxItems={portfolioItem.images.length - 1}
+      >
+        <img
+          src={`https:${portfolioItem.images[currentImageIndex].file.url}`}
+          ref={modalImageRef}
+          alt=""
+        />
       </Modal>
       <article
         className={`post-content ${portfolioItem.frontmatter || `no-image`}`}

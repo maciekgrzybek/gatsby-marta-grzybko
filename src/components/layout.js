@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
     <div className={`site-wrapper ${navIsOpen ? `site-head-open` : ``}`}>
       <Header siteMetadata={site.siteMetadata} toggleNav={setToggleNav} navIsOpen={navIsOpen}/>
       <main id="site-main" className="site-main">
-        <div id="swup" className="transition-fade">
+        <div id="swup">
           {children}
         </div>
       </main>
