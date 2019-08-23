@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import CloseIcon from './closeIcon';
-import ChevronIcon from './ChevronIcon';
-
-
+import ChevronIcon from './chevronIcon';
 
 const Modal = ({
   children,
