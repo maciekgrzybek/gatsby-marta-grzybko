@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import useOutsideClick from '@rooks/use-outside-click';
 
@@ -73,6 +73,7 @@ const PortfolioItemTemplate = ({ data }) => {
           </p>
         )}
         {portfolioItem.images.length > 0 && renderImages(portfolioItem.images)}
+        <Link to={portfolioItem.category.title === 'Projekt' ? '/' : '/realizacje'} className="back-link">Powrót</Link>
         <footer className="post-content-footer"></footer>
       </article>
     </>
@@ -87,6 +88,9 @@ export const pageQuery = graphql`
       title
       description {
         description
+      }
+      category {
+        title
       }
       images {
         id
