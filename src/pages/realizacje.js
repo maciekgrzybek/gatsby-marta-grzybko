@@ -43,18 +43,16 @@ const indexQuery = graphql`
 
 export default (props) => {
   return (
-    <div>
-      <StaticQuery
-        query={indexQuery}
-        render={(data) => (
-          <PortfolioListing
-            props
-            category="Realizacja"
-            data={data}
-            {...props}
-          />
-        )}
-      />
-    </div>
+    <StaticQuery
+      query={indexQuery}
+      render={(data) => (
+        <PortfolioListing
+          props
+          category="Realizacja"
+          data={data}
+          {...props}
+        />
+      )}
+    />
   );
 };
