@@ -47,7 +47,7 @@ const PortfolioItemTemplate = ({ data }) => {
             : portfolioItem.title
         }
       />
-      {/* <Modal
+      <Modal
         isOpen={lightboxIsOpen}
         updateOpen={toggleLigthbox}
         currentImageIndex={currentImageIndex}
@@ -59,7 +59,7 @@ const PortfolioItemTemplate = ({ data }) => {
           ref={modalImageRef}
           alt=""
         />
-      </Modal> */}
+      </Modal>
       <article
         className={`post-content ${portfolioItem.frontmatter || `no-image`}`}
       >
