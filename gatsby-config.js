@@ -29,7 +29,7 @@ module.exports = {
           require("autoprefixer"),
         ],
       },
-    // },
+    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
