@@ -764,3 +764,15 @@ a.site-head:hover {
   font-weight: 600;
   opacity: 0.4;
 }
+
+/* Page Template
+/* ---------------------------------------------------------- */
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list svg {
+  margin-right: 10px;
+}

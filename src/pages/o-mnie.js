@@ -2,10 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 import SEO from '../components/seo';
 
 const AboutPage = ({ data }) => {
-  const siteTitle = data.site.siteMetadata.title;
   const pageData = data.contentfulPages;
   return (
     <>
@@ -27,6 +29,16 @@ const AboutPage = ({ data }) => {
               __html: pageData.description.description,
             }}
           />
+          
+          <br />
+          <b>Kontakt:</b>
+          <div id="kontakt">
+            <ul className="contact-list">
+              <li><FontAwesomeIcon icon={faEnvelope} />martagrzybko@gmail.com</li>
+              <li><FontAwesomeIcon icon={faPhone} />+48 793 298 366</li>
+            </ul>
+          </div>
+
         </div>
       </article>
     </>
