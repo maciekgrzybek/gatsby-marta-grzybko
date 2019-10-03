@@ -96,6 +96,7 @@ body {
   margin: 0;
   font-size: 3.5rem;
   color: var(--color-base);
+  opacity: 0.35;
 }
 @media (max-width: 500px) {
   .page-head-title {
@@ -408,6 +409,7 @@ a.site-head:hover {
   background-size: cover;
   overflow: hidden;
   counter-increment: posts;
+  border: 5px solid white; /* Quick solution to add spacing between cards. */
 }
 
 .post-card::before {
@@ -559,7 +561,7 @@ a.site-head:hover {
 
 .post-content-excerpt {
   margin: -2vw 0 3vw;
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   line-height: 1.6em;
   color: var(--color-base);
   text-align: center;
@@ -761,4 +763,16 @@ a.site-head:hover {
   color: #131313;
   font-weight: 600;
   opacity: 0.4;
+}
+
+/* Page Template
+/* ---------------------------------------------------------- */
+
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list svg {
+  margin-right: 10px;
 }

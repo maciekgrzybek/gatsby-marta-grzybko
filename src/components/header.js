@@ -51,22 +51,16 @@ const Header = ({siteMetadata, toggleNav, navIsOpen}) => {
         </div>
         <div className="site-head-right">
           <div className="social-links">
-            <a
-              href="mailto:martagrzybko@gmail.com"
-              title="Email"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={`/o-mnie/#kontakt`}
             >
               Email
-            </a>
-            <a
-              href="tel:48793298366"
-              title="Telefon"
-              target="_blank"
-              rel="noopener noreferrer"
+            </Link>
+            <Link
+              to={`/o-mnie/#kontakt`}
             >
               Telefon
-            </a>
+            </Link>
           </div>
         </div>
       </div>
