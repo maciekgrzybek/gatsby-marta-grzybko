@@ -96,6 +96,7 @@ body {
   margin: 0;
   font-size: 3.5rem;
   color: var(--color-base);
+  opacity: 0.35;
 }
 @media (max-width: 500px) {
   .page-head-title {
