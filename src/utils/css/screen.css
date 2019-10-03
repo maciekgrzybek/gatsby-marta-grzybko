@@ -409,6 +409,7 @@ a.site-head:hover {
   background-size: cover;
   overflow: hidden;
   counter-increment: posts;
+  border: 5px solid white; /* Quick solution to add spacing between cards. */
 }
 
 .post-card::before {
