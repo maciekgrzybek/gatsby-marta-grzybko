@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +22,7 @@ const AboutPage = ({ data }) => {
             {pageData.intro.intro}
           </h2>
           <figure className="kg-card kg-image-card">
-            <Img fluid={pageData.images[0].fluid} className="kg-image" />
+            <GatsbyImage image={pageData.images[0].gatsbyImageData} alt="" className="kg-image" />
           </figure>
           <div
             dangerouslySetInnerHTML={{
@@ -61,15 +61,7 @@ export const query = graphql`
         description
       }
       images {
-        fluid(maxWidth: 1360) {
-          aspectRatio
-          base64
-          sizes
-          src
-          srcSet
-          srcSetWebp
-          srcWebp
-        }
+        gatsbyImageData(width: 1360, layout: CONSTRAINED)
       }
     }
   }

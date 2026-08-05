@@ -35,15 +35,7 @@ export const indexQuery = graphql`
           }
           images {
             id
-            fluid(maxWidth: 1360) {
-              aspectRatio
-              base64
-              sizes
-              src
-              srcSet
-              srcSetWebp
-              srcWebp
-            }
+            gatsbyImageData(width: 1360, layout: CONSTRAINED)
           }
         }
       }

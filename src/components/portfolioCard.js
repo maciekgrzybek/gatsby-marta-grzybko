@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 
 export default ({ count, postClass, node }) => (
   <article
@@ -9,7 +10,7 @@ export default ({ count, postClass, node }) => (
     }`}
     style={
       node.images.length > 0 && {
-        backgroundImage: `url(${node.images[0].fluid.src})`,
+        backgroundImage: `url(${getSrc(node.images[0])})`,
       }
     }
   >

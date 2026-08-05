@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useStaticQuery } from 'gatsby';
-import { Link } from 'gatsby';
+import { useStaticQuery, Link, graphql } from 'gatsby';
 
 import Header from './header';
 

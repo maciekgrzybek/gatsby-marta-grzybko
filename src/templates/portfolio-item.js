@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import useOutsideClick from '@rooks/use-outside-click';
 
 import Modal from '../components/modal';
@@ -28,9 +28,9 @@ const PortfolioItemTemplate = ({ data }) => {
           }}
           key={image.id}
         >
-          <Img
+          <GatsbyImage
             className="kg-image"
-            fluid={image.fluid}
+            image={image.gatsbyImageData}
             alt={data.contentfulPortfolioItem.title}
           />
         </div>
@@ -97,15 +97,7 @@ export const pageQuery = graphql`
         file {
           url
         }
-        fluid(maxWidth: 1360) {
-          aspectRatio
-          base64
-          sizes
-          src
-          srcSet
-          srcSetWebp
-          srcWebp
-        }
+        gatsbyImageData(width: 1360, layout: CONSTRAINED)
       }
     }
   }
