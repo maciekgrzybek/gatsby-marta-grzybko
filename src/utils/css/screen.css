@@ -299,6 +299,7 @@ a.site-head:hover {
     position: relative;
     z-index: -1;
     height: auto;
+    pointer-events: none;
     transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transition-delay: 1s;
   }
@@ -365,6 +366,7 @@ a.site-head:hover {
   .site-head-open .site-head-right {
     z-index: 9999;
     height: auto;
+    pointer-events: auto;
     transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   }
 
