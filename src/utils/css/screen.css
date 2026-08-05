@@ -14,6 +14,7 @@ production stylesheet in assets/built/screen.css using gulp dev
 @import "components/buttons.css";
 @import "components/hamburger.css";
 @import "components/modal.css";
+@import "components/cv.css";
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */

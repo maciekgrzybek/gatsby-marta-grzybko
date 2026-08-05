@@ -1,0 +1,42 @@
+/* CV Page
+/* ---------------------------------------------------------- */
+
+.post-content.cv-page {
+  max-width: 1300px;
+}
+
+.cv-lang-switch {
+  text-align: center;
+}
+
+.cv-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.cv-sidebar {
+  flex: 0 0 340px;
+  width: 340px;
+  font-size: 1.6rem;
+}
+
+.cv-sidebar h4 {
+  font-size: 1.8rem;
+}
+
+.cv-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 740px) {
+  .cv-layout {
+    flex-direction: column;
+  }
+
+  .cv-sidebar {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
