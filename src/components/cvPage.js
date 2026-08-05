@@ -14,10 +14,6 @@ const CvPage = ({ content, otherLang }) => (
     <SEO title={`CV - ${content.name}`} lang={content.lang} />
 
     <article className="post-content cv-page no-image">
-      <p className="cv-lang-switch">
-        <Link to={`/cv/${otherLang.slug}/`}>{otherLang.label}</Link>
-      </p>
-
       <div className="cv-layout">
         <aside className="cv-sidebar">
           <figure className="kg-card kg-image-card">
@@ -26,54 +22,64 @@ const CvPage = ({ content, otherLang }) => (
 
           <h4>{content.contactHeading}</h4>
           <ul className="contact-list">
-            <li><FontAwesomeIcon icon={faPhone} />{content.phone}</li>
-            <li><FontAwesomeIcon icon={faEnvelope} />{content.email}</li>
+            <li>
+              <FontAwesomeIcon icon={faPhone} />
+              {content.phone}
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faEnvelope} />
+              {content.email}
+            </li>
           </ul>
 
           <h4>{content.techSkillsHeading}</h4>
           <ul>
-            {content.techSkills.map((skill) => (
+            {content.techSkills.map(skill => (
               <li key={skill}>{skill}</li>
             ))}
           </ul>
 
           <h4>{content.softSkillsHeading}</h4>
           <ul>
-            {content.softSkills.map((skill) => (
+            {content.softSkills.map(skill => (
               <li key={skill}>{skill}</li>
             ))}
           </ul>
 
           <h4>{content.languagesHeading}</h4>
           <ul>
-            {content.languages.map((language) => (
+            {content.languages.map(language => (
               <li key={language}>{language}</li>
             ))}
           </ul>
 
           <h4>{content.additionalHeading}</h4>
           <ul>
-            {content.additional.map((item) => (
+            {content.additional.map(item => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </aside>
 
         <div className="cv-main post-content-body">
-          <p><strong>{content.role}</strong></p>
+          <p>
+            <strong>{content.role}</strong>
+          </p>
           <h1>{content.name}</h1>
           <p>{content.intro}</p>
 
           <h2>{content.projectsHeading}</h2>
-          <p><a href={content.projectsUrl}>{content.projectsUrl}</a></p>
+          <p>
+            <a href={content.projectsUrl}>{content.projectsUrl}</a>
+          </p>
 
           <h2>{content.experienceHeading}</h2>
-          {content.experience.map((job) => (
+          {content.experience.map(job => (
             <div key={job.company}>
               <h4>{job.company}</h4>
               <p>{job.period}</p>
               <ul>
-                {job.bullets.map((bullet) => (
+                {job.bullets.map(bullet => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
@@ -81,7 +87,7 @@ const CvPage = ({ content, otherLang }) => (
           ))}
 
           <h2>{content.educationHeading}</h2>
-          {content.education.map((entry) => (
+          {content.education.map(entry => (
             <div key={entry.period}>
               <p>{entry.period}</p>
               <ul>
